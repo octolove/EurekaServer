@@ -1,0 +1,19 @@
+server:
+  port: 9000
+
+eureka:
+    instance:
+        instance-id: chenxd-eureka
+        hostname: 127.0.0.1
+        prefer-ip-address: true
+    client:
+       healthcheck:     #健康检查
+           enabled: true  
+       register-with-eureka: false
+       fetch-registry: false
+       service-url:
+           defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    server:
+        eviction-interval-timer-in-ms: 5000
+        enable-self-preservation: false # 设置为false表示关闭保护模式
+         
